@@ -13,21 +13,21 @@
 
 ActiveRecord::Schema.define(version: 20150211132822) do
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "categories", force: true do |t|
+    t.string   "name",       limit: nil
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string   "title"
+  create_table "products", force: true do |t|
+    t.string   "title",       limit: nil
     t.text     "description"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "reviews", force: true do |t|
     t.text     "msg"
     t.integer  "product_id"
     t.integer  "user_id"
@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(version: 20150211132822) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: true do |t|
     t.boolean  "is_admin"
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: nil
+    t.string   "email",      limit: nil
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
