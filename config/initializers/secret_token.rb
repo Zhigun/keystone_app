@@ -1,1 +1,16 @@
-KeystoneApp::Application.config.secret_key_base = 'fad695421e376f62ffa4ac5d8e6830b8631dfa36a434e3f6639840d2f37921ed80444ac3695da463190844f4831f1693b98eb6e8a0b355dfb9efbfb880ed5a58'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+KeystoneApp::Application.config.secret_key_base = secure_token
