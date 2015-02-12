@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211132822) do
+ActiveRecord::Schema.define(version: 20150212173202) do
 
   create_table "categories", force: true do |t|
     t.string   "name",       limit: nil
@@ -36,11 +36,11 @@ ActiveRecord::Schema.define(version: 20150211132822) do
   end
 
   create_table "users", force: true do |t|
-    t.boolean  "is_admin"
-    t.string   "name",       limit: nil
-    t.string   "email",      limit: nil
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.boolean  "is_admin",   default: false
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end
