@@ -8,6 +8,19 @@ header {
 }
 img#logo { float: left; }
 
+/*colors*/
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+  color: #D6F243
+}
+.btn-primary {
+  background-color: #b6c748;
+  border-color: #aaba42;
+  &:hover {
+    background-color: #a3b643;
+    border-color: #98a63d;
+  }
+}
+
 html { overflow-y: scroll;  }
 section {  overflow: auto;  }
 textarea {  resize: vertical;  }
