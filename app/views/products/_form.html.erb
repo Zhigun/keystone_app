@@ -25,9 +25,9 @@
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.number_field :category_id %>
+    <%= f.collection_select :category_id, Category.order(:name), :id, :name, prompt: true %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary btn-lg" %>
   </div>
 <% end %>

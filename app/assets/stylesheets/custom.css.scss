@@ -44,3 +44,7 @@ footer {  margin-top: 45px;  padding-top: 5px;  border-top: 1px solid #eaeaea;  
   a { color: #555; &:hover {color: #222;}}
   small {float: left;}
 }
+.actions {
+  margin: 10px 0;
+}
+input[type="file"] { display: inline-block; }

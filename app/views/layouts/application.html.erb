@@ -15,17 +15,10 @@
     <div class="container-fluid">
       <div class="jumbotron">
         <div class="row">
-          <div class="col-sm-3">
-            All categories
-            <ul>
-                <% Category.all.each do |c| %>
 
-                      <li><%= c.name %></li>
+          <%= render 'layouts/menu_lefty' if action_name != 'new' %>
 
-                <% end %>
-            </ul>
-          </div>
-          <div class="col-sm-9">
+          <div<%= raw(' class="col-sm-9"') if action_name != 'new' %>>
             <%= yield %>
           </div>
         </div>

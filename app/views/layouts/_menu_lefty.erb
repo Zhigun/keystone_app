@@ -1,0 +1,14 @@
+<div class="col-sm-3">
+  <ul class="list-group inverse">
+    <li class="list-group-item">
+      <span class="badge"><%= Product.all.count %></span>
+      All categories
+    </li>
+    <% Category.all.each do |c| %>
+      <li class="list-group-item">
+        <span class="badge"><%= c.products.count %></span>
+        <%= c.name %>
+      </li>
+    <% end %>
+  </ul>
+</div>
