@@ -13,18 +13,21 @@
 
 ActiveRecord::Schema.define(version: 20150213095725) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: true do |t|
-    t.string   "name",       limit: nil
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: true do |t|
-    t.string   "title",            limit: nil
+    t.string   "title"
     t.text     "description"
     t.integer  "category_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "img_file_name"
     t.string   "img_content_type"
     t.integer  "img_file_size"
