@@ -10,7 +10,7 @@ img#logo { float: left; }
 
 /*colors*/
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-  color: #D6F243
+  color: #D6F243;
 }
 .btn-primary {
   background-color: #b6c748;
@@ -48,3 +48,15 @@ footer {  margin-top: 45px;  padding-top: 5px;  border-top: 1px solid #eaeaea;  
   margin: 10px 0;
 }
 input[type="file"] { display: inline-block; }
+
+.list-group-item{
+  &:hover{ background-color: #D6F243; }
+}
+
+.block {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #555;
+  img { float: left; margin: 0 15px 5px 0; }
+}
+.jumbotron p { font-size: 14px; }
+

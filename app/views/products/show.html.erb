@@ -1,23 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="block">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <%= image_tag @product.img(:medium) %>
-</p>
+  <p>
+    <%= image_tag @product.img(:medium) %>
+    <strong><%= @product.title %></strong><br>
+    <%= @product.description %>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+    <%= link_to 'Edit', edit_product_path(@product) %> |
+    <%= link_to 'Back', products_path %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @product.category_id %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+</div>

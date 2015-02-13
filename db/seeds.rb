@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 categories = Category.create([{ name: 'Football' }, { name: 'Swimming' }, { name: 'Climbing' }])
-User.create( is_admin: true, name: 'Admin', email: 'admin@test.com')
+User.create( is_admin: true, name: 'Admin', email: 'admin@test.com', password: 'password', password_confirmation: 'password')
