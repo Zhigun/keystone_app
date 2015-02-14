@@ -13,12 +13,15 @@
     <%= render "layouts/header" %>
 
     <div class="container-fluid">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+      <% end %>
       <div class="jumbotron">
         <div class="row">
 
-          <%= render 'layouts/menu_lefty' if action_name != 'new' %>
+          <%= render 'layouts/menu_lefty' if show_left_menu? %>
 
-          <div<%= raw(' class="col-sm-9"') if action_name != 'new' %>>
+          <div<%= raw(' class="col-sm-9"') if show_left_menu? %>>
             <%= yield %>
           </div>
         </div>
