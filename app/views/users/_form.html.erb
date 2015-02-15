@@ -1,10 +1,12 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages' %>
 
-  <div class="field">
-    <%= f.label :is_admin %><br>
-    <%= f.check_box :is_admin %>
-  </div>
+  <% if !current_user.nil? && current_user.is_admin %>
+    <div class="field">
+      <br><%= f.label :is_admin %>
+      <%= f.check_box :is_admin %><br><br>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

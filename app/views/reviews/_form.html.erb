@@ -15,13 +15,13 @@
     <%= f.label :msg %><br>
     <%= f.text_area :msg %>
   </div>
-  <div class="field">
+  <div class="field hidden">
     <%= f.label :product_id %><br>
     <%= f.number_field :product_id %>
   </div>
-  <div class="field">
+  <div class="field hidden">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.number_field :user_id,:value => current_user.id %>
   </div>
   <div class="actions">
     <%= f.submit class:"btn btn-primary btn-lg" %>

@@ -60,6 +60,9 @@ input[type="file"] { display: inline-block; }
   border-bottom: 2px solid #555;
   img { float: left; border: 5px solid white; border-radius: 10px; margin: 0 5px 5px 0;}
   &.block-small { border-bottom: none; float: left; min-width: 300px;margin: -5px 10px 10px 0;}
+  &.comments {
+    border-bottom: none;
+  }
 }
 .jumbotron p { font-size: 14px; }
 
@@ -72,6 +75,15 @@ input[type="file"] { display: inline-block; }
     list-style: none;
     }
   }
+}
+textarea#review_msg {
+  min-height: 100px;
+  width: 90%;
+}
+.row.review-msg {
+  padding-left: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid #555;
 }
 
 
