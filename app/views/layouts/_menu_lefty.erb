@@ -1,14 +1,18 @@
 <div class="col-sm-3">
   <ul class="list-group inverse">
-    <li class="list-group-item">
-      <span class="badge"><%= Product.all.count %></span>
-      <%= link_to 'All categories', products_path %>
-    </li>
-    <% Category.all.each do |c| %>
+    <%= link_to products_path do %>
       <li class="list-group-item">
-        <span class="badge"><%= c.products.count %></span>
-        <%= link_to c.name, products_category_path(c) %>
+        <span class="badge"><%= Product.all.count %></span>
+        All categories
       </li>
+    <% end %>
+    <% Category.all.each do |c| %>
+      <%= link_to  products_category_path(c) do %>
+        <li class="list-group-item">
+          <span class="badge"><%= c.products.count %></span>
+          <%= c.name %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>
