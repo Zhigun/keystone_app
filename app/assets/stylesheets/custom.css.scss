@@ -54,9 +54,12 @@ input[type="file"] { display: inline-block; }
 }
 
 .block {
-  padding-bottom: 5px;
+  min-height: 300px;
+  padding: 5px;
+  margin-top: -5px;
   border-bottom: 2px solid #555;
-  img { float: left; margin: 0 15px 5px 0; }
+  img { float: left; border: 5px solid white; border-radius: 10px; margin: 0 5px 5px 0;}
+  &.block-small { border-bottom: none; float: left; min-width: 300px;margin: -5px 10px 10px 0;}
 }
 .jumbotron p { font-size: 14px; }
 

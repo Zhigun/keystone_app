@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
   def show_left_menu?
-    (controller_name == 'users' && action_name == 'new') ? false : true
+    (controller_name == 'users' && action_name == 'new') || (controller_name == 'sessions' && action_name == 'new') ? false : true
   end
 end
