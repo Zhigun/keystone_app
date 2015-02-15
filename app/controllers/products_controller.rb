@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :can_manage?, only: [:new, :edit, :create, :update, :destroy]
+
 
   # GET /products
   # GET /products.json
@@ -10,7 +12,8 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @review = Product.find(params[:id]).reviews.new
+    @review = @product.reviews.build
+    @reviews = @product.reviews.paginate(page: params[:page], :per_page => 5)
   end
 
   # GET /products/new

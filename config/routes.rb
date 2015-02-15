@@ -5,11 +5,15 @@ Rails.application.routes.draw do
   resources :users
   match '/sign_up', to: 'users#new', via: 'get'
 
-  resources :reviews
+  resources :reviews, only: [:create, :destroy]
 
   resources :products
 
-  resources :categories
+  resources :categories do
+    member do
+      get :products
+    end
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
   match '/signin',  to: 'sessions#new',         via: 'get'

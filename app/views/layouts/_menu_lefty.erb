@@ -2,12 +2,12 @@
   <ul class="list-group inverse">
     <li class="list-group-item">
       <span class="badge"><%= Product.all.count %></span>
-      All categories
+      <%= link_to 'All categories', products_path %>
     </li>
     <% Category.all.each do |c| %>
       <li class="list-group-item">
         <span class="badge"><%= c.products.count %></span>
-        <%= c.name %>
+        <%= link_to c.name, products_category_path(c) %>
       </li>
     <% end %>
   </ul>

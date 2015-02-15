@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :can_manage?, only: [:new, :edit, :create, :update, :destroy, :show, :index]
 
   # GET /categories
   # GET /categories.json
@@ -59,6 +60,10 @@ class CategoriesController < ApplicationController
       format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def products
+    @products = Category.find(params[:id]).products.paginate(page: params[:page], :per_page => 6)
   end
 
   private

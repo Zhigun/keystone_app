@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update, :destroy]
+  before_action :can_manage?, only: :destroy
+  before_action :logged_in?, only: :new
 
   # GET /users
   # GET /users.json
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        sign_in @user
+        sign_in @user if !signed_in?
         flash[:success] = 'User was successfully created'
         format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }
@@ -78,15 +80,12 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
-    def signed_in_user
-      unless signed_in?
-        flash[:warning] = 'Please sign in.'
-        redirect_to signin_url
-      end
-    end
-
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def logged_in?
+      redirect_to(root_url) if !current_user.nil?
     end
 end

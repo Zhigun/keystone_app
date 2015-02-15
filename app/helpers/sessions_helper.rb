@@ -36,4 +36,17 @@ module SessionsHelper
       false
     end
   end
+
+  def signed_in_user
+    unless signed_in?
+      flash[:warning] = 'Please sign in.'
+      redirect_to signin_url
+    end
+  end
+
+  def can_manage?
+    if !admin?
+      redirect_to root_path
+    end
+  end
 end
