@@ -5,9 +5,9 @@
     </div>
   </div>
   <div class="col-sm-2">
-    <%= link_to 'New Product', new_product_path, class: 'btn btn-lg btn-primary' %>
+    <%= link_to 'New Product', new_product_path, class: 'btn btn-lg btn-primary' if admin? %>
   </div>
   <div class="row">
-    <%= will_paginate @products, renderer: BootstrapPagination::Rails if admin? %>
+    <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
   </div>
 </div>
