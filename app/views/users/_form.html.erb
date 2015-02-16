@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages' %>
 
-  <% if !current_user.nil? && current_user.is_admin %>
+  <% if admin? && !current_user.is_admin %>
     <div class="field">
       <br><%= f.label :is_admin %>
       <%= f.check_box :is_admin %><br><br>

@@ -55,12 +55,16 @@ input[type="file"] { display: inline-block; }
 
 .block {
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  min-height: 300px;
   padding: 5px;
   margin-top: -20px;
   background-color: white;
   img { float: left; border: 5px solid white; border-radius: 10px; margin: 0 5px 5px 0;}
-  &.block-small { min-height: 250px;float: left; min-width: 300px;margin: -5px 10px 10px 0; background-color: white;border-radius: 5px}
+  &.block-small {float: left; width: 310px; margin: -5px 10px 10px 0; background-color: white;border-radius: 5px;
+    > a:first-child {position: relative; display: block; padding-top:100%; width: 300px;
+      img {position:absolute; top: 0; bottom: 0; left: 0; right: 0; max-height: 100%; max-width: 100%; margin: auto;}
+    }
+  }
+  .title {margin: 10px 0; height: 20px;}
   &.comments {
     border-bottom: none;
   }
@@ -81,7 +85,8 @@ textarea#review_msg {
   min-height: 100px;
   width: 90%;
 }
-.row.review-msg {
+.block+.review-msg {margin-top:20px;}
+.clearfix.review-msg {
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   padding: 10px;
   border-bottom: 1px solid #555;
