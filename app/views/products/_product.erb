@@ -5,8 +5,10 @@
   </div>
 
   <% if admin? %>
-    <%= link_to 'Edit', edit_product_path(product), class: 'btn btn-primary btn-sm pull-right' %>
-    <%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm pull-right' %>
+    <div>
+      <%= link_to 'Edit', edit_product_path(product), class: 'btn btn-primary btn-sm pull-right' %>
+      <%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm pull-right' %>
+    </div>
   <% end %>
 </div>
 
