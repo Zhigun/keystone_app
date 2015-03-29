@@ -4,7 +4,7 @@ class CreateDelayedJobs < ActiveRecord::Migration
       table.integer :priority, default: 0, null: false # Allows some jobs to jump to the front of the queue
       table.integer :attempts, default: 0, null: false # Provides for retries, but still fail eventually.
       table.column :handler, :longtext,    null: false # YAML-encoded string of the object that will do work
-      table.column :last_error, :longtext,             # reason for last failure (See Note below)
+      table.column :last_error, :longtext             # reason for last failure (See Note below)
       table.datetime :run_at                           # When to run. Could be Time.zone.now for immediately, or sometime in the future.
       table.datetime :locked_at                        # Set when a client is working on this object
       table.datetime :failed_at                        # Set when all retries have failed (actually, by default, the record is deleted instead)
