@@ -23,6 +23,8 @@ gem 'cancancan', '~> 1.10'
 gem 'paperclip', "~> 4.2"
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
+gem 'delayed_job_active_record'
+
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

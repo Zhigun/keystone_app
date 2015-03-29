@@ -35,6 +35,7 @@ class UsersController < ApplicationController
       if @user.save
         sign_in @user if !signed_in?
         flash[:success] = 'User was successfully created'
+        UserMailer.welcome_email(@user).deliver
         format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }
       else
@@ -82,7 +83,7 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to(root_url) unless current_user?(@user) || admin?
     end
 
     def logged_in?
