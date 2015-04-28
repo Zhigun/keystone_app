@@ -1,1 +1,1 @@
-Keystone test application
+My test app
